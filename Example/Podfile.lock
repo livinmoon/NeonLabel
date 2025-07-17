@@ -1,0 +1,31 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - Masonry (1.1.0)
+  - NeonLabel (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - Masonry
+  - NeonLabel (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+    - Masonry
+
+EXTERNAL SOURCES:
+  NeonLabel:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  NeonLabel: b0dc28b4973c96e1f568f612986cb36f61bea06d
+
+PODFILE CHECKSUM: 0833763109f05c821f5ded50d47ac5fa44e476a0
+
+COCOAPODS: 1.16.2

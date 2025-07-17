@@ -1,12 +1,5 @@
-//
-//  NeonLabelTests.m
-//  NeonLabelTests
-//
-//  Created by 122723478 on 07/10/2025.
-//  Copyright (c) 2025 122723478. All rights reserved.
-//
-
 @import XCTest;
+#import "ViewController.h"
 
 @interface Tests : XCTestCase
 
@@ -24,6 +17,23 @@
 {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+}
+
+- (void)testNeonLabelTextChangeUpdatesSize {
+    ViewController *vc = [[ViewController alloc] init];
+    
+    NeonLabel *label = vc.neonLabel;
+    label.text = @"Short";
+    [vc.view layoutIfNeeded];
+    
+    CGSize shortSize = label.frame.size;
+    
+    label.text = @"This is a much longer";
+    [vc.view layoutIfNeeded];
+    
+    CGSize longSize = label.frame.size;
+    
+    XCTAssertTrue(shortSize.width < longSize.width);
 }
 
 - (void)testExample

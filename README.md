@@ -1,6 +1,6 @@
 # NeonLabel
 
-[![CI Status](https://img.shields.io/travis/122723478/NeonLabel.svg?style=flat)](https://travis-ci.org/122723478/NeonLabel)
+[![CI Status](https://img.shields.io/travis/122723478/NeonLabel.svg?style=flat)](https://travis-ci.org/livinmoon/NeonLabel)
 [![Version](https://img.shields.io/cocoapods/v/NeonLabel.svg?style=flat)](https://cocoapods.org/pods/NeonLabel)
 [![License](https://img.shields.io/cocoapods/l/NeonLabel.svg?style=flat)](https://cocoapods.org/pods/NeonLabel)
 [![Platform](https://img.shields.io/cocoapods/p/NeonLabel.svg?style=flat)](https://cocoapods.org/pods/NeonLabel)
@@ -9,7 +9,19 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+## Usage
+
+```objc
+#import <NeonLabel/NeonLabel.h>
+#import <Masonry/Masonry.h>
+
+NeonLabel *label = [[NeonLabel alloc] init];
+label.text = @"Hello World!";
+[self.view addSubview:label];
+[label mas_makeConstraints:^(MASConstraintMaker *make) { 
+   make.edges.equalTo(self.view); 
+}];
+```
 
 ## Installation
 
@@ -19,10 +31,6 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'NeonLabel'
 ```
-
-## Author
-
-122723478, wuhusapp@icloud.com
 
 ## License
 

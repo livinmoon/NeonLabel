@@ -1,0 +1,6 @@
+framework module NeonLabel {
+  umbrella header "NeonLabel-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -4,6 +4,7 @@ platform :ios, '10.0'
 
 target 'NeonLabel_Example' do
   pod 'NeonLabel', :path => '../'
+  pod 'Masonry'
 
   target 'NeonLabel_Tests' do
     inherit! :search_paths
