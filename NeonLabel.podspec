@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'NeonLabel'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A UILabel-like component with customizable neon light effects using Core Animation.'
   s.description      = <<-DESC
   NeonLabel is a lightweight UILabel alternative that renders glowing neon text using CATextLayer and CATextLayer.

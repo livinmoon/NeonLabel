@@ -5,7 +5,6 @@
 
 @property (nonatomic, strong) CATextLayer *textLayer;
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
-@property (nonatomic, assign) NSUInteger colorsCount;
 
 @end
 
@@ -63,38 +62,23 @@
         (id)[UIColor purpleColor].CGColor
     ];
     
-    NSMutableArray *locations = [NSMutableArray array];
-    for (NSInteger i = 0; i < self.colorsCount; i++) {
-        [locations addObject:@(i * self.colorsCount)];
-    }
-    self.gradientLayer.locations = locations;
-    
     [self.layer addSublayer:self.gradientLayer];
 
     self.textLayer = [CATextLayer layer];
     self.textLayer.alignmentMode = kCAAlignmentCenter;
     self.textLayer.contentsScale = [UIScreen mainScreen].scale;
-    self.textLayer.foregroundColor = UIColor.blackColor.CGColor;
     
     self.gradientLayer.mask = self.textLayer;
 }
 
 - (void)setupAnimations {
-    NSMutableArray *fromValues = [NSMutableArray array];
-    NSMutableArray *toValues = [NSMutableArray array];
-    for (NSInteger i = 0; i < self.colorsCount; i++) {
-        CGFloat f = i * 1.0 / self.colorsCount;
-        [fromValues addObject:@(f)];
-        [toValues addObject:@(f + 1.0)];
-    }
-    
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"locations"];
-    animation.fromValue = fromValues;
-    animation.toValue = toValues;
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"startPoint"];
+    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(-0.5, 0.5)];
+    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(1, 0.5)];
     animation.duration = 3.0;
-    animation.repeatCount = HUGE_VALF;
-    animation.removedOnCompletion = NO;
+    animation.repeatDuration = HUGE_VALF;
     animation.fillMode = kCAFillModeForwards;
+    animation.removedOnCompletion = NO;
     
     [self.gradientLayer addAnimation:animation forKey:@"neon"];
 }
@@ -121,10 +105,6 @@
     self.textLayer.string = text;
     
     [self invalidateIntrinsicContentSize];
-}
-
-- (NSUInteger)colorsCount {
-    return self.gradientLayer.colors.count;
 }
 
 @end
